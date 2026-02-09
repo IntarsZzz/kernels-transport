@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="lv">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kernels Transport risinājumi Jūsu kravu loģistikai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Bricolage+Grotesque:wght@800&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              orange: '#FF6B00',
+              navy: '#1F2937', // Tumši pelēcīgs (Slate/Gray hibrīds)
+              light: '#F9FAFB',
+              gray: '#6B7280',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            display: ['Bricolage Grotesque', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          borderRadius: {
+            'none': '0',
+            'sm': '0',
+            'DEFAULT': '0',
+            'md': '0',
+            'lg': '0',
+            'xl': '0',
+            '2xl': '0',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #FF6B00;
+    }
+
+    .no-corners {
+      border-radius: 0 !important;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-white text-brand-navy antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
