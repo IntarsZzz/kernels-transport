@@ -3,7 +3,7 @@ import React from 'react';
 
 const Marquee: React.FC = () => {
     const routes = [
-        'DOBELE', 'RĪGA', 'VIENNA', 'PRAGUE', 'MILAN', 'MUNICH', 'BERLIN', 'WARSAW', 'BRATISLAVA', 'LINZ'
+        'DOBELE', 'RĪGA'
     ];
 
     return (

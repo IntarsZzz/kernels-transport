@@ -6,22 +6,22 @@ const FleetTech: React.FC = () => {
   useScrollReveal();
   const features = [
     {
-      code: 'TEHN-01',
+      code: '01',
       title: 'EURO 6 Vilcēji',
       desc: 'Viss mūsu autoparks sastāv no jaunākās paaudzes Volvo vilcējiem, kas nodrošina minimālu ietekmi uz vidi un maksimālu efektivitāti.'
     },
     {
-      code: 'TEHN-02',
+      code: '02',
       title: 'GPS Monitorings',
       desc: 'Reāllaika kravas izsekojamība un telemātikas dati ļauj mums sniegt precīzu informāciju par sūtījuma statusu jebkurā brīdī.'
     },
     {
-      code: 'TEHN-03',
+      code: '03',
       title: 'Aktīvā Drošība',
       desc: 'Volvo I-See un aktīvās bremzēšanas sistēmas nodrošina drošu transportēšanu pat vissarežģītākajos laikapstākļos un maršrutos.'
     },
     {
-      code: 'TEHN-04',
+      code: '04',
       title: '92m³ Puspiekabes',
       desc: 'Specializētās Walking Floor sistēmas ļauj mums efektīvi pārvadāt liela apjoma beramkravas ar automatizētu izkraušanas procesu.'
     }

@@ -33,7 +33,7 @@ const StatCard: React.FC<{ value: string; label: string; desc: string; index: nu
 
   return (
     <div ref={cardRef} className="bg-white p-12 transition-all hover:bg-gray-50 group scroll-reveal" style={{ transitionDelay: `${index * 100}ms` }}>
-      <span className="text-[10px] font-mono opacity-30 block mb-10 text-brand-navy">REĢISTRS // 0{index + 1}</span>
+      <span className="text-[10px] font-mono opacity-30 block mb-10 text-brand-navy">0{index + 1}</span>
       <p className="text-6xl font-black mb-4 tracking-tighter text-brand-navy group-hover:text-brand-orange transition-colors">
         {value.includes('+') ? `${displayValue}+` : /^[0-9]+$/.test(value) ? displayValue : value}
       </p>
@@ -68,7 +68,7 @@ const About: React.FC = () => {
           </div>
           <div className="lg:col-span-5 text-gray-500 font-medium leading-relaxed pt-4 scroll-reveal delay-200">
             <p className="mb-6">
-              Uzņēmums "Kernels Transport" (vēsturiski pazīstams un atpazīstams kā "RV Kodoli") savu darbību uzsāka 2010. gadā Dobelē. Vairāk nekā 14 gadu laikā uzkrātā pieredze starptautiskajā loģistikā ir ļāvusi mums izveidot noslīpētu un uzticamu sistēmu.
+              Uzņēmums "Kernels Transport" savu darbību uzsāka 2010. gadā Dobelē. Vairāk nekā 14 gadu laikā uzkrātā pieredze starptautiskajā loģistikā ir ļāvusi mums izveidot noslīpētu un uzticamu sistēmu.
             </p>
             <p className="text-brand-navy font-black text-xs uppercase tracking-widest border-l-2 border-brand-orange pl-6">
               Garantēta kvalitāte un individuāla pieeja katram pasūtījumam.

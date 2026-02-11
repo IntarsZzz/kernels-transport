@@ -8,7 +8,7 @@ import Services from './components/Services';
 import Routes from './components/Routes';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Marquee from './components/Marquee';
+
 import { useScrollReveal } from './services/animations';
 
 const App: React.FC = () => {
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <Marquee />
+
       <About />
       <FleetTech />
       <Services />

@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="text-lg text-brand-navy/60 mb-14 leading-relaxed font-medium border-l-2 border-brand-orange pl-8 animate-fade-in-up delay-400">
-            Mēs nodrošinām nepārtrauktu, stabilu un drošu kravu kustību starp Baltijas valstīm un Centrāleiropas galvenajiem ekonomiskajiem mezgliem. Mēs garantējam precizitāti katrā veiksmīgi piegādātajā kilometrā.
+            Mēs nodrošinām nepārtrauktu, stabilu un drošu kravu kustību starp Baltijas valstīm un Centrāleiropu.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
