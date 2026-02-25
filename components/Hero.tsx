@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           <img
             src="/images/Hero_Volvo@0.75x.jpg"
             alt="Kernels Transport Cargo"
-            className="w-full h-full object-cover scale-110 opacity-60 grayscale brightness-90"
+            className="w-full h-full object-cover object-[72%_center] md:object-center scale-110 opacity-60 grayscale brightness-90"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-gray-100/40 to-black/5"></div>

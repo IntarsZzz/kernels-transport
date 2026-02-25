@@ -69,8 +69,8 @@ const Routes: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-brand-navy p-10 mt-[-20px] ml-10 border-l-4 border-brand-orange">
-              <p className="text-white text-[11px] font-black uppercase leading-relaxed tracking-widest">
+            <div className="bg-brand-navy p-8 md:p-10 mt-[-20px] w-[92%] md:w-auto mx-auto md:mx-0 md:ml-10 border-l-4 border-brand-orange">
+              <p className="text-white text-[11px] font-black uppercase leading-relaxed tracking-widest text-center md:text-left">
                 "Katru nedēļu mūsu transports atrodas ceļā, savienojot Baltiju ar Eiropas ekonomiskajiem centriem."
               </p>
             </div>
