@@ -23,7 +23,7 @@ export const getGeminiResponse = async (userMessage: string, history: { role: 'u
         Galvenie pakalpojumi: 
         1. FTL (pilnās kravas) un LTL (saliktās kravas) starp Baltiju un Centrāleiropu (Austrija, Čehija, Ziemeļitālija).
         2. Beramkravu loģistika ar 92m3 šķeldveža puspiekabi Baltijā.
-        3. Autoparkā ir 6 Volvo EURO 6 vilcēji.
+        3. Autoparkā ir 11 Volvo EURO 6 vilcēji.
         
         Ja klients jautā par cenām, paskaidro, ka cenu var uzzināt sazinoties ar Edīti Gardu (+371 26073934, edite@kernels.lv) vai Edgaru Vinciunu (+371 26 161 593, edgars@kernels.lv).
         Esi īss un kodolīgs.`,

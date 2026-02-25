@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
                 <div className="border-l-2 border-gray-100 pl-8">
                   <p className="text-[9px] font-mono font-bold text-brand-orange uppercase mb-4 tracking-widest">// VADĪBA</p>
                   <h4 className="text-xl font-black text-brand-navy mb-1 uppercase tracking-tighter">Edgars Vinciuns</h4>
-                  <p className="text-[10px] text-gray-400 mb-6 uppercase font-black tracking-widest">Īpašnieks</p>
+                  <p className="text-[10px] text-gray-400 mb-6 uppercase font-black tracking-widest">Loģistikas vadītājs</p>
                   <div className="space-y-3">
                     <a href="tel:+37126161593" className="block text-xs font-black uppercase tracking-widest">+371 26 161 593</a>
                     <a href="mailto:edgars@kernels.lv" className="block text-xs font-black uppercase tracking-widest">edgars@kernels.lv</a>
@@ -52,8 +52,8 @@ const Contact: React.FC = () => {
 
             <div className="pt-16 border-t border-gray-100">
               <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-4">Uzņēmuma informācija</p>
-              <p className="text-xs font-black text-brand-navy uppercase tracking-tighter mb-2">SIA "Kernels Transport" // Reģ. nr.: 43603043831</p>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Uzvaras iela 54A, Dobele, LV-3701</p>
+              <p className="text-xs font-black text-brand-navy uppercase tracking-tighter mb-2">SIA "Kernels Transport" // Reģ. nr.: 40203299137</p>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Dobeles nov., Dobele, Kooperācijas iela 6, LV-3701</p>
             </div>
           </div>
 

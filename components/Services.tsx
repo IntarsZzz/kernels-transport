@@ -8,7 +8,7 @@ const Services: React.FC = () => {
     {
       title: 'FTL Loģistika',
       subtitle: 'PILNĀS KRAVAS',
-      description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm visā Centrāleiropā bez starpposmiem.',
+      description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm no un uz Austriju bez pārkraušanām',
       details: ['Nav kravas pārkraušanas', 'Fiksēti piegādes laiki', 'Maršruti: Austrija, Čehija, Itālija', 'CMR apdrošināšana']
     },
     {
@@ -21,7 +21,7 @@ const Services: React.FC = () => {
       title: 'Beramkravas',
       subtitle: '92M³ WALKING FLOOR',
       description: 'Specializēts transports liela apjoma beramkravu pārvadājumiem Baltijas valstīs.',
-      details: ['Kustīgā grīda', 'Šķelda un koksne', 'Lauksaimniecības produkti', 'Pašizkraušana']
+      details: ['Kustīgā grīda', 'Šķelda un kūdra', 'Lauksaimniecības produkti', 'Pašizkraušana']
     }
   ];
 

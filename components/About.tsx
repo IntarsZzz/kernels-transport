@@ -51,7 +51,7 @@ const About: React.FC = () => {
   useScrollReveal();
   const stats = [
     { value: '14+', label: 'Gadi Nozarē', desc: 'Darbība uzsākta 2010. gadā Dobelē, nodrošinot nepārtrauktu izaugsmi.' },
-    { value: '6', label: 'Volvo Vilcēji', desc: 'Mūsdienīgs autoparks, kas pilnībā atbilst EURO 6 ekoloģijas standartiem.' },
+    { value: '11', label: 'Volvo Vilcēji', desc: 'Mūsdienīgs autoparks, kas pilnībā atbilst EURO 6 ekoloģijas standartiem.' },
     { value: '92', label: 'M³ Ietilpība', desc: 'Liela apjoma beramkravu pārvadājumi ar specializētām šķeldveža piekabēm.' },
     { value: 'LTRK', label: 'Biedrs', desc: 'Aktīva līdzdalība Latvijas Tirdzniecības un rūpniecības kamerā.' }
   ];
@@ -63,7 +63,7 @@ const About: React.FC = () => {
           <div className="lg:col-span-7 scroll-reveal">
             <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Par Uzņēmumu</span>
             <h2 className="text-brand-orange font-black text-4xl md:text-6xl mb-8 tracking-tighter uppercase leading-tight font-display">
-              Kernel Transport loģistikas risinājumi
+              Kernels Transport loģistikas risinājumi
             </h2>
           </div>
           <div className="lg:col-span-5 text-gray-500 font-medium leading-relaxed pt-4 scroll-reveal delay-200">

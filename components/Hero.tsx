@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div style={{ transform: `translateY(${parallaxOffset}px)` }} className="w-full h-full transition-transform duration-100 ease-out">
           <img
-            src="/images/Hero1.jpg"
+            src="/images/Hero_Volvo@0.75x.jpg"
             alt="Kernels Transport Cargo"
             className="w-full h-full object-cover scale-110 opacity-60 grayscale brightness-90"
           />

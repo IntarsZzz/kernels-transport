@@ -26,11 +26,12 @@ const Footer: React.FC = () => {
           <div className="md:col-span-3">
             <h5 className="text-[11px] font-black uppercase tracking-[0.3em] text-brand-orange mb-10">Birojs</h5>
             <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose">
-              Uzvaras iela 54A, Dobele,<br />
+              Dobeles nov., Dobele,<br />
+              Kooperācijas iela 6,<br />
               LV-3701, Latvija<br />
               <br />
               SIA Kernels Transport<br />
-              REĢ: 43603043831
+              REĢ: 40203299137
             </p>
           </div>
           
