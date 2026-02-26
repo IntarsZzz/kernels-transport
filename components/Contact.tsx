@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="kontakti" className="py-32 bg-gray-50 border-b border-gray-200 scroll-reveal">
+    <section id="kontakti" className="pt-32 pb-0 md:py-32 bg-gray-50 border-b-0 md:border-b border-gray-200 scroll-reveal">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-24">
           <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Kontakti</span>
@@ -19,11 +19,11 @@ const Contact: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-px bg-gray-200 border border-gray-200 items-start">
+        <div className="grid lg:grid-cols-12 gap-px bg-gray-200 border border-b-0 md:border-b border-gray-200 items-stretch -mx-6 md:mx-0">
           <div className="lg:col-span-6 bg-white p-12 space-y-10">
             <div>
               <div className="space-y-8">
-                <div className="border-l-2 border-gray-100 pl-6">
+                <div className="border-l-0 md:border-l-2 border-gray-100 pl-0 md:pl-6">
                   <h4 className="text-lg font-black text-brand-navy mb-1 uppercase tracking-tighter">Edgars Vinciuns</h4>
                   <p className="text-[10px] text-gray-400 mb-4 uppercase font-black tracking-widest">Loģistikas vadītājs</p>
                   <div className="space-y-2">
@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-gray-100 pl-6">
+                <div className="border-l-0 md:border-l-2 border-gray-100 pl-0 md:pl-6">
                   <h4 className="text-lg font-black text-brand-navy mb-1 uppercase tracking-tighter">Edīte Garda</h4>
                   <p className="text-[10px] text-gray-400 mb-4 uppercase font-black tracking-widest">Menedžere</p>
                   <div className="space-y-2">
@@ -41,7 +41,7 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="border-l-2 border-gray-100 pl-6">
+                <div className="border-l-0 md:border-l-2 border-gray-100 pl-0 md:pl-6">
                   <h4 className="text-lg font-black text-brand-navy mb-1 uppercase tracking-tighter">Grāmatvedība</h4>
                   <p className="text-[10px] text-gray-400 mb-4 uppercase font-black tracking-widest">Norēķini</p>
                   <div className="space-y-2 mb-5">
@@ -63,13 +63,18 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-16 border-t border-gray-100">
+            <div className="pt-5 border-t border-gray-100">
               <p className="text-xs font-black text-brand-navy uppercase tracking-tighter mb-2">SIA "Kernels Transport" // Reģ. nr.: 40203299137</p>
               <p className="text-xs font-bold text-gray-400 uppercase tracking-widest font-accent">Dobeles nov., Dobele, Kooperācijas iela 6, LV-3701</p>
+              <div className="mt-4 space-y-1">
+                <p className="text-[10px] font-bold text-brand-navy uppercase tracking-[0.08em] leading-tight">Timo ID: 417530</p>
+                <p className="text-[10px] font-bold text-brand-navy uppercase tracking-[0.08em] leading-tight">Cargo ID: C90773</p>
+                <p className="text-[10px] font-bold text-brand-navy uppercase tracking-[0.08em] leading-tight">Transporeon User ID: 9897428 (639193)</p>
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-brand-navy p-12 self-start">
+          <div className="lg:col-span-6 bg-brand-navy p-12 h-full">
             <h3 className="text-xs font-black text-white mb-12 uppercase tracking-[0.3em]">Nosūtīt Pieprasījumu</h3>
             <form onSubmit={handleSubmit} className="space-y-10">
               <div className="grid md:grid-cols-2 gap-10">

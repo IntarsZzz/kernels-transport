@@ -31,7 +31,7 @@ const Routes: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-20">
           <div>
             <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Maršruti</span>
-            <h2 className="text-5xl md:text-7xl font-black text-brand-navy tracking-tighter leading-none mb-12 uppercase font-title">
+            <h2 className="text-4xl md:text-6xl font-black text-brand-navy tracking-tighter leading-none mb-12 uppercase font-title">
               Ģeogrāfiskais Pārklājums
             </h2>
 
@@ -51,7 +51,7 @@ const Routes: React.FC = () => {
           </div>
 
           <div className="flex flex-col h-full">
-            <div className="flex-1 relative bg-brand-navy overflow-hidden">
+            <div className="flex-1 relative bg-brand-navy overflow-hidden min-h-[520px] lg:min-h-0">
               {images.map((img, idx) => (
                 <div
                   key={idx}
@@ -69,7 +69,7 @@ const Routes: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-brand-navy p-8 md:p-10 mt-[-20px] w-[92%] md:w-auto mx-auto md:mx-0 md:ml-10 border-l-4 border-brand-orange">
+            <div className="bg-brand-navy p-8 md:p-10 mt-[-20px] w-full md:w-auto mx-0 md:ml-10 border-l-4 border-brand-orange">
               <p className="text-white text-[11px] font-black uppercase leading-relaxed tracking-widest text-center md:text-left">
                 "Katru nedēļu mūsu transports atrodas ceļā, savienojot Baltiju ar Eiropas ekonomiskajiem centriem."
               </p>
