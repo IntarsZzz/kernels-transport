@@ -14,8 +14,11 @@ const Footer: React.FC = () => {
                Profesionāli loģistikas risinājumi un kravu pārvadājumi starp Baltiju un Centrāleiropu kopš 2010. gada. Savs autoparks un pilna procesu kontrole.
              </p>
              <div className="mt-12 flex space-x-6">
-                <a href="#" className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 hover:text-brand-orange transition-colors">
+                <a href="https://www.facebook.com/kernelstransport" target="_blank" rel="noreferrer" className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 hover:text-brand-orange transition-colors">
                   [Facebook]
+                </a>
+                <a href="https://www.instagram.com/kernelstransport_sia" target="_blank" rel="noreferrer" className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 hover:text-brand-orange transition-colors">
+                  [Instagram]
                 </a>
              </div>
           </div>

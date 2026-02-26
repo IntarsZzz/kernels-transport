@@ -8,7 +8,7 @@ const Services: React.FC = () => {
     {
       title: 'FTL Loģistika',
       subtitle: 'PILNĀS KRAVAS',
-      description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm no un uz Austriju bez pārkraušanām',
+      description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm. No/uz Austriju bez pārkraušanām',
       details: ['Nav kravas pārkraušanas', 'Fiksēti piegādes laiki', 'Maršruti: Austrija, Čehija, Itālija', 'CMR apdrošināšana']
     },
     {
@@ -42,7 +42,7 @@ const Services: React.FC = () => {
                 <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.3em] block mb-4">
                   {s.subtitle}
                 </span>
-                <h4 className="text-3xl font-black text-white mb-0 tracking-tighter uppercase">{s.title}</h4>
+                <h4 className="text-3xl font-black text-white mb-0 tracking-[0.04em] [word-spacing:0.22em] uppercase">{s.title}</h4>
               </div>
 
               <p className="text-white/40 leading-relaxed mb-12 text-sm font-medium h-20">
