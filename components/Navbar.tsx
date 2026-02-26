@@ -83,6 +83,15 @@ const Navbar: React.FC = () => {
         id="mobile-navigation"
         className={`lg:hidden fixed inset-0 z-40 bg-white transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       >
+        <button
+          type="button"
+          onClick={handleMenuToggle}
+          className="absolute top-6 right-6 h-12 w-12 flex items-center justify-center text-brand-navy text-3xl leading-none font-black"
+          aria-label="Aizvērt navigāciju"
+        >
+          ×
+        </button>
+
         <div className="h-full w-full pt-28 pb-10 px-6 flex flex-col justify-between">
           <div className="flex flex-col items-center justify-center flex-1 gap-8">
             {navItems.map((item) => (

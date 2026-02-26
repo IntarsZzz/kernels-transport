@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           <img
             src="/images/Kernels_Transport_hero.jpg?v=20260226"
             alt="Kernels Transport Cargo"
-            className="w-full h-full object-cover object-[80%_center] md:object-[66%_center] scale-100 opacity-60 grayscale brightness-90"
+            className="w-full h-full object-cover object-[62%_center] md:object-[66%_center] scale-100 opacity-60 grayscale brightness-90"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-gray-100/40 to-black/5"></div>
@@ -52,12 +52,12 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
             <div className="magnetic-wrap">
-              <a href="#kontakti" className="group relative overflow-hidden px-14 py-7 bg-brand-orange text-white font-black text-xs uppercase tracking-[0.3em] transition-all block">
+              <a href="#kontakti" className="group relative overflow-hidden px-14 py-7 bg-brand-orange text-white font-black text-xs uppercase tracking-[0.3em] transition-all flex items-center justify-center text-center">
                 <span className="relative z-10">Pieteikt Pārvadājumu</span>
                 <div className="absolute inset-0 bg-brand-navy translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </a>
             </div>
-            <a href="#maršruti" className="px-14 py-7 border border-brand-navy/10 hover:border-brand-orange text-brand-navy font-black text-xs uppercase tracking-[0.1em] transition-all bg-white/5 backdrop-blur-sm">
+            <a href="#maršruti" className="px-14 py-7 border border-brand-navy/10 hover:border-brand-orange text-brand-navy font-black text-xs uppercase tracking-[0.1em] transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center text-center">
               Mūsu Maršruti
             </a>
           </div>
