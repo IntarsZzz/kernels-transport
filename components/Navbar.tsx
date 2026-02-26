@@ -40,9 +40,11 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <span className={`text-xl font-black tracking-tighter transition-colors ${isScrolled ? 'text-brand-navy' : 'text-brand-navy'}`}>
-              KERNELS <span className="text-brand-orange">Transport</span>
-            </span>
+            <a href="#sākums" aria-label="Kernels Transport sākumlapa" className="block">
+              <span className={`text-2xl font-black tracking-tight font-title transition-colors ${isScrolled ? 'text-black' : 'text-black'}`}>
+                Kernels Transport
+              </span>
+            </a>
           </div>
           
           <div className="hidden lg:flex items-center space-x-10">

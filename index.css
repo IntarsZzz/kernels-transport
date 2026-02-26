@@ -42,8 +42,46 @@
   }
 }
 
+@keyframes drift-orb {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(18px, -14px, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: drift-orb 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-orb-a {
+  width: 280px;
+  height: 280px;
+  right: -60px;
+  top: 20%;
+  background: radial-gradient(circle at center, rgba(255, 107, 0, 0.35) 0%, rgba(255, 107, 0, 0) 70%);
+}
+
+.hero-orb-b {
+  width: 220px;
+  height: 220px;
+  left: -40px;
+  bottom: 12%;
+  background: radial-gradient(circle at center, rgba(31, 41, 55, 0.25) 0%, rgba(31, 41, 55, 0) 72%);
+  animation-delay: 1.5s;
 }
 
 .reveal-mask {

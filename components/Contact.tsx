@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-24">
           <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Kontakti</span>
-          <h2 className="text-5xl md:text-7xl font-black text-brand-navy tracking-tighter leading-none uppercase">
+          <h2 className="text-5xl md:text-7xl font-black text-brand-navy tracking-tighter leading-none uppercase font-title">
             Sazināties ar <br /> <span className="text-brand-orange">komandu</span>
           </h2>
         </div>
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
 
             <div className="pt-16 border-t border-gray-100">
               <p className="text-xs font-black text-brand-navy uppercase tracking-tighter mb-2">SIA "Kernels Transport" // Reģ. nr.: 40203299137</p>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Dobeles nov., Dobele, Kooperācijas iela 6, LV-3701</p>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest font-accent">Dobeles nov., Dobele, Kooperācijas iela 6, LV-3701</p>
             </div>
           </div>
 

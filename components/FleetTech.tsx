@@ -33,7 +33,7 @@ const FleetTech: React.FC = () => {
         <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 scroll-reveal">
           <div className="max-w-2xl">
             <span className="text-brand-orange text-xs font-black uppercase tracking-[0.4em] mb-4 block">Autoparks</span>
-            <h2 className="text-5xl md:text-7xl font-black text-brand-orange tracking-tighter leading-[0.9] uppercase font-display">
+            <h2 className="text-5xl md:text-7xl font-black text-brand-orange tracking-tighter leading-[0.9] uppercase font-title">
               Tehniskais Aprīkojums
             </h2>
           </div>

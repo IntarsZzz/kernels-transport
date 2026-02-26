@@ -62,7 +62,7 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-12 gap-12 items-start mb-24">
           <div className="lg:col-span-7 scroll-reveal">
             <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Par Uzņēmumu</span>
-            <h2 className="text-brand-orange font-black text-4xl md:text-6xl mb-8 tracking-tighter uppercase leading-tight font-display">
+            <h2 className="text-brand-orange font-black text-4xl md:text-6xl mb-8 tracking-tighter uppercase leading-tight font-title">
               Kernels Transport loģistikas risinājumi
             </h2>
           </div>

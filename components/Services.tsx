@@ -30,7 +30,7 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-24 scroll-reveal">
           <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Pakalpojumi</span>
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase font-display">
+          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase font-title">
             Mūsu loģistikas pakalpojumi
           </h2>
         </div>

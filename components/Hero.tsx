@@ -11,13 +11,15 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div style={{ transform: `translateY(${parallaxOffset}px)` }} className="w-full h-full transition-transform duration-100 ease-out">
           <img
-            src="/images/Hero_Volvo@0.75x.jpg"
+            src="/images/Kernels_Transport_hero.jpg"
             alt="Kernels Transport Cargo"
-            className="w-full h-full object-cover object-[72%_center] md:object-center scale-110 opacity-60 grayscale brightness-90"
+            className="w-full h-full object-cover object-[72%_center] md:object-center scale-100 opacity-60 grayscale brightness-90"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-gray-100/40 to-black/5"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-gray-100 via-transparent to-transparent"></div>
+        <div className="hero-orb hero-orb-a"></div>
+        <div className="hero-orb hero-orb-b"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-16">
@@ -29,7 +31,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-brand-navy leading-[0.9] mb-12 tracking-tighter uppercase font-display">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-brand-navy leading-[0.9] mb-12 tracking-tighter uppercase font-title drop-shadow-[0_8px_18px_rgba(31,41,55,0.12)]">
             <div className="reveal-mask mb-2">
               <span className="reveal-text">Kernels</span>
             </div>
@@ -37,7 +39,9 @@ const Hero: React.FC = () => {
               <span className="reveal-text delay-100">Transport</span>
             </div>
             <div className="reveal-mask">
-              <span className="text-3xl md:text-5xl block mt-4 reveal-text delay-200">Kravu pārvadājumi</span>
+              <span className="text-4xl md:text-6xl block mt-4 reveal-text delay-200 font-accent uppercase font-semibold tracking-[0.06em] text-brand-navy/90">
+                Kravu pārvadājumi
+              </span>
             </div>
             <span className="text-brand-orange text-lg block mt-6 tracking-widest font-mono animate-fade-in-up delay-300">Loģistikas precizitāte katrā kilometrā</span>
           </h1>
@@ -67,11 +71,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute left-1/2 bottom-12 -translate-x-1/2 hidden md:flex flex-col items-center space-y-4 animate-fade-in-up delay-500">
-        <span className="text-[8px] font-mono text-brand-navy/20 tracking-[0.5em] uppercase">Ritiniet</span>
-        <div className="w-[1px] h-16 bg-gradient-to-b from-brand-orange to-transparent opacity-50"></div>
-      </div>
     </section>
   );
 };

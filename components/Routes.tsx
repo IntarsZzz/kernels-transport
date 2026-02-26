@@ -31,7 +31,7 @@ const Routes: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-20">
           <div>
             <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Maršruti</span>
-            <h2 className="text-5xl md:text-7xl font-black text-brand-navy tracking-tighter leading-none mb-12 uppercase">
+            <h2 className="text-5xl md:text-7xl font-black text-brand-navy tracking-tighter leading-none mb-12 uppercase font-title">
               Ģeogrāfiskais Pārklājums
             </h2>
 

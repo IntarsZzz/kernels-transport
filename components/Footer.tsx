@@ -17,15 +17,12 @@ const Footer: React.FC = () => {
                 <a href="#" className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 hover:text-brand-orange transition-colors">
                   [Facebook]
                 </a>
-                <a href="#" className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50 hover:text-brand-orange transition-colors">
-                  [LinkedIn]
-                </a>
              </div>
           </div>
           
           <div className="md:col-span-3">
             <h5 className="text-[11px] font-black uppercase tracking-[0.3em] text-brand-orange mb-10">Birojs</h5>
-            <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose">
+            <p className="text-white/50 text-[11px] font-bold uppercase tracking-widest leading-loose font-accent">
               Dobeles nov., Dobele,<br />
               Kooperācijas iela 6,<br />
               LV-3701, Latvija<br />
