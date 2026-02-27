@@ -16,3 +16,5 @@ export interface Message {
   role: 'user' | 'model';
   text: string;
 }
+
+export type Language = 'lv' | 'en';

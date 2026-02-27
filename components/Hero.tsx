@@ -1,13 +1,34 @@
-
 import React from 'react';
 import { useParallax } from '../services/animations';
+import type { Language } from '../types';
 
-const Hero: React.FC = () => {
+type HeroProps = {
+  language: Language;
+};
+
+const Hero: React.FC<HeroProps> = ({ language }) => {
   const parallaxOffset = useParallax(0.3);
 
+  const copy = language === 'lv'
+    ? {
+        badge: 'Integrētas loģistikas sistēmas',
+        titleSuffix: 'Kravu pārvadājumi',
+        subtitle: 'Loģistikas precizitāte katrā kilometrā',
+        description: 'Mēs nodrošinām nepārtrauktu, stabilu un drošu kravu kustību starp Baltijas valstīm un Centrāleiropu.',
+        primary: 'Pieteikt pārvadājumu',
+        secondary: 'Mūsu maršruti'
+      }
+    : {
+        badge: 'Integrated logistics systems',
+        titleSuffix: 'Freight transport',
+        subtitle: 'Logistics precision in every kilometer',
+        description: 'We ensure continuous, stable and secure cargo movement between the Baltics and Central Europe.',
+        primary: 'Request Transport',
+        secondary: 'Our Routes'
+      };
+
   return (
-    <section id="sākums" className="relative min-h-screen flex items-center overflow-hidden bg-gray-100">
-      {/* Background Image with Depth Gradients and Parallax */}
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gray-100">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div style={{ transform: `translateY(${parallaxOffset}px)` }} className="w-full h-full transition-transform duration-100 ease-out">
           <img
@@ -24,10 +45,9 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-16">
         <div className="max-w-3xl">
-          {/* Index & Category */}
           <div className="mb-10 flex items-center space-x-6">
             <div className="reveal-mask">
-              <span className="text-brand-navy/40 text-[10px] font-black uppercase tracking-[0.4em] reveal-text">Integrētas loģistikas sistēmas</span>
+              <span className="text-brand-navy/40 text-[10px] font-black uppercase tracking-[0.4em] reveal-text">{copy.badge}</span>
             </div>
           </div>
 
@@ -40,31 +60,30 @@ const Hero: React.FC = () => {
             </div>
             <div className="reveal-mask">
               <span className="text-4xl md:text-6xl block mt-4 reveal-text delay-200 font-accent uppercase font-semibold tracking-[0.06em] text-brand-navy/90">
-                Kravu pārvadājumi
+                {copy.titleSuffix}
               </span>
             </div>
-            <span className="text-brand-orange text-lg block mt-6 tracking-widest font-mono animate-fade-in-up delay-300">Loģistikas precizitāte katrā kilometrā</span>
+            <span className="text-brand-orange text-lg block mt-6 tracking-widest font-mono animate-fade-in-up delay-300">{copy.subtitle}</span>
           </h1>
 
           <p className="text-lg text-brand-navy/60 mb-14 leading-relaxed font-medium border-l-2 border-brand-orange pl-8 animate-fade-in-up delay-400">
-            Mēs nodrošinām nepārtrauktu, stabilu un drošu kravu kustību starp Baltijas valstīm un Centrāleiropu.
+            {copy.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
             <div className="magnetic-wrap">
-              <a href="#kontakti" className="group relative overflow-hidden px-14 py-7 bg-brand-orange text-white font-black text-xs uppercase tracking-[0.3em] transition-all flex items-center justify-center text-center">
-                <span className="relative z-10">Pieteikt Pārvadājumu</span>
+              <a href="#contact" className="group relative overflow-hidden px-14 py-7 bg-brand-orange text-white font-black text-xs uppercase tracking-[0.3em] transition-all flex items-center justify-center text-center">
+                <span className="relative z-10">{copy.primary}</span>
                 <div className="absolute inset-0 bg-brand-navy translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </a>
             </div>
-            <a href="#maršruti" className="px-14 py-7 border border-brand-navy/10 hover:border-brand-orange text-brand-navy font-black text-xs uppercase tracking-[0.1em] transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center text-center">
-              Mūsu Maršruti
+            <a href="#routes" className="px-14 py-7 border border-brand-navy/10 hover:border-brand-orange text-brand-navy font-black text-xs uppercase tracking-[0.1em] transition-all bg-white/5 backdrop-blur-sm flex items-center justify-center text-center">
+              {copy.secondary}
             </a>
           </div>
         </div>
       </div>
 
-      {/* Side Label */}
       <div className="absolute left-10 bottom-10 hidden xl:block animate-fade-in-up delay-500">
         <div className="text-[9px] font-mono text-brand-navy/10 tracking-[0.5em]" style={{ writingMode: 'vertical-rl' }}>
           EST. 2010 // LOGISTICS PRECISION // VOLVO FLEET

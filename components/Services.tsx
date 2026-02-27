@@ -1,42 +1,78 @@
-
 import React from 'react';
 import { useScrollReveal } from '../services/animations';
+import type { Language } from '../types';
 
-const Services: React.FC = () => {
+type ServicesProps = {
+  language: Language;
+};
+
+const Services: React.FC<ServicesProps> = ({ language }) => {
   useScrollReveal();
-  const services = [
-    {
-      title: 'FTL Loģistika',
-      subtitle: 'PILNĀS KRAVAS',
-      description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm. No/uz Austriju bez pārkraušanām',
-      details: ['Nav kravas pārkraušanas', 'Fiksēti piegādes laiki', 'Maršruti: Austrija, Čehija, Itālija', 'CMR apdrošināšana']
-    },
-    {
-      title: 'LTL Serviss',
-      subtitle: 'SALIKTĀS KRAVAS',
-      description: 'Kravu grupēšana un regulāra izvešana, optimizējot transporta izmaksas mazāka apjoma sūtījumiem.',
-      details: ['Iknedēļas grafiki', 'Cenu efektivitāte', 'Kravu konsolidācija', 'Sūtījumu monitorings']
-    },
-    {
-      title: 'Beramkravas',
-      subtitle: '92M³ WALKING FLOOR',
-      description: 'Specializēts transports liela apjoma beramkravu pārvadājumiem Baltijas valstīs.',
-      details: ['Kustīgā grīda', 'Šķelda un kūdra', 'Lauksaimniecības produkti', 'Pašizkraušana']
-    }
-  ];
+
+  const copy = language === 'lv'
+    ? {
+        label: 'Pakalpojumi',
+        title: 'Mūsu loģistikas pakalpojumi',
+        cta: 'Pieteikt pārvadājumu',
+        services: [
+          {
+            title: 'FTL loģistika',
+            subtitle: 'Pilnās kravas',
+            description: 'Tiešas un operatīvas piegādes no durvīm līdz durvīm. No vai uz Austriju bez pārkraušanām.',
+            details: ['Nav kravas pārkraušanas', 'Fiksēti piegādes laiki', 'Maršruti: Austrija, Čehija, Itālija', 'CMR apdrošināšana']
+          },
+          {
+            title: 'LTL serviss',
+            subtitle: 'Saliktās kravas',
+            description: 'Kravu grupēšana un regulāra izvešana, optimizējot transporta izmaksas mazākam sūtījumu apjomam.',
+            details: ['Iknedēļas grafiki', 'Cenu efektivitāte', 'Kravu konsolidācija', 'Sūtījumu monitorings']
+          },
+          {
+            title: 'Beramkravas',
+            subtitle: '92M³ Walking Floor',
+            description: 'Specializēts transports liela apjoma beramkravu pārvadājumiem Baltijas valstīs.',
+            details: ['Kustīgā grīda', 'Šķelda un kūdra', 'Lauksaimniecības produkti', 'Pašizkraušana']
+          }
+        ]
+      }
+    : {
+        label: 'Services',
+        title: 'Our logistics services',
+        cta: 'Request transport',
+        services: [
+          {
+            title: 'FTL logistics',
+            subtitle: 'Full truck loads',
+            description: 'Direct and fast door-to-door deliveries. To and from Austria without reloading.',
+            details: ['No cargo reloading', 'Fixed delivery times', 'Routes: Austria, Czechia, Italy', 'CMR insurance']
+          },
+          {
+            title: 'LTL service',
+            subtitle: 'Part loads',
+            description: 'Consolidated freight with scheduled departures, optimized for smaller shipment volumes.',
+            details: ['Weekly schedules', 'Cost efficiency', 'Freight consolidation', 'Shipment monitoring']
+          },
+          {
+            title: 'Bulk cargo',
+            subtitle: '92M3 walking floor',
+            description: 'Specialized transport for high-volume bulk cargo movements in the Baltic region.',
+            details: ['Moving floor system', 'Wood chips and peat', 'Agricultural products', 'Self unloading']
+          }
+        ]
+      };
 
   return (
-    <section id="pakalpojumi" className="py-32 bg-brand-navy relative overflow-hidden">
+    <section id="services" className="py-32 bg-brand-navy relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-24 scroll-reveal">
-          <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Pakalpojumi</span>
+          <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">{copy.label}</span>
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase font-title">
-            Mūsu loģistikas pakalpojumi
+            {copy.title}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-          {services.map((s, i) => (
+          {copy.services.map((s, i) => (
             <div key={i} className="bg-brand-navy p-12 hover:bg-white/5 transition-all group scroll-reveal hover-tilt" style={{ transitionDelay: `${i * 150}ms` }}>
               <div className="mb-12">
                 <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.3em] block mb-4">
@@ -58,8 +94,8 @@ const Services: React.FC = () => {
                 ))}
               </div>
 
-              <a href="#kontakti" className="inline-block w-full py-5 text-center bg-white text-brand-navy hover:bg-brand-orange hover:text-white text-[11px] font-black uppercase tracking-widest transition-all">
-                Pieteikt Pārvadājumu
+              <a href="#contact" className="inline-block w-full py-5 text-center bg-white text-brand-navy hover:bg-brand-orange hover:text-white text-[11px] font-black uppercase tracking-widest transition-all">
+                {copy.cta}
               </a>
             </div>
           ))}

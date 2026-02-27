@@ -1,12 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
+import type { Language } from '../types';
 
-const Routes: React.FC = () => {
+type RoutesProps = {
+  language: Language;
+};
+
+const Routes: React.FC<RoutesProps> = ({ language }) => {
   const images = [
-    "/images/1.jpg",
-    "/images/2.jpg",
-    "/images/3.jpg",
-    "/images/4.jpg"
+    '/images/1.jpg',
+    '/images/2.jpg',
+    '/images/3.jpg',
+    '/images/4.jpg'
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -18,25 +22,46 @@ const Routes: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const regions = [
-    { country: 'Austrija', label: 'CENTRĀLEIROPA', desc: 'Mūsu pamata maršruts ar iknedēļas pieejamību.' },
-    { country: 'Čehija', label: 'TRANZĪTA MEZGLS', desc: 'Regulāras piegādes industriālajiem reģioniem.' },
-    { country: 'Ziemeļitālija', label: 'DIENVIDEIROPA', desc: 'Tiešie reisi uz Itālijas ziemeļu ražošanas punktiem.' },
-    { country: 'Baltijas Valstis', label: 'MĀJAS REĢIONS', desc: 'Iekšzemes loģistika un kravu konsolidācija.' },
-  ];
+  const copy = language === 'lv'
+    ? {
+        label: 'Maršruti',
+        title: 'Ģeogrāfiskais pārklājums',
+        cardTitle: 'Efektīvi maršruti',
+        cardSub: 'Optimāla loģistikas plānošana',
+        quote: 'Katru nedēļu mūsu transports atrodas ceļā, savienojot Baltiju ar Eiropas ekonomiskajiem centriem.',
+        regions: [
+          { country: 'Austrija', label: 'Centrāleiropa', desc: 'Mūsu pamata maršruts ar iknedēļas pieejamību.' },
+          { country: 'Čehija', label: 'Tranzīta mezgls', desc: 'Regulāras piegādes industriālajiem reģioniem.' },
+          { country: 'Ziemeļitālija', label: 'Dienvideiropa', desc: 'Tiešie reisi uz Itālijas ziemeļu ražošanas punktiem.' },
+          { country: 'Baltijas valstis', label: 'Mājas reģions', desc: 'Iekšzemes loģistika un kravu konsolidācija.' }
+        ]
+      }
+    : {
+        label: 'Routes',
+        title: 'Geographical coverage',
+        cardTitle: 'Efficient routes',
+        cardSub: 'Optimized logistics planning',
+        quote: 'Every week our fleet is on the road, connecting the Baltics with Europe\'s economic centers.',
+        regions: [
+          { country: 'Austria', label: 'Central Europe', desc: 'Our core route with weekly availability.' },
+          { country: 'Czechia', label: 'Transit hub', desc: 'Regular deliveries to industrial regions.' },
+          { country: 'Northern Italy', label: 'Southern Europe', desc: 'Direct trips to production hubs in northern Italy.' },
+          { country: 'Baltic States', label: 'Home region', desc: 'Domestic logistics and cargo consolidation.' }
+        ]
+      };
 
   return (
-    <section id="maršruti" className="py-32 bg-white border-b border-gray-100 scroll-reveal">
+    <section id="routes" className="py-32 bg-white border-b border-gray-100 scroll-reveal">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20">
           <div>
-            <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Maršruti</span>
+            <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">{copy.label}</span>
             <h2 className="text-4xl md:text-6xl font-black text-brand-navy tracking-tighter leading-none mb-12 uppercase font-title">
-              Ģeogrāfiskais Pārklājums
+              {copy.title}
             </h2>
 
             <div className="border-t border-gray-100">
-              {regions.map((point, idx) => (
+              {copy.regions.map((point, idx) => (
                 <div key={idx} className="flex items-center p-8 border-b border-gray-100 hover:bg-gray-50 transition-all group">
                   <div className="flex-1">
                     <p className="text-[9px] font-mono font-bold text-brand-orange uppercase tracking-[0.2em] mb-1">{point.label}</p>
@@ -64,14 +89,14 @@ const Routes: React.FC = () => {
 
               <div className="absolute bottom-16 left-16 right-16 z-20">
                 <div className="h-[3px] w-12 bg-brand-orange mb-8"></div>
-                <h3 className="text-4xl font-black text-white uppercase tracking-tighter leading-none mb-4">Efektīvi <br />Maršruti</h3>
-                <p className="text-white/40 text-[9px] font-mono uppercase tracking-[0.4em]">Optimāla loģistikas plānošana</p>
+                <h3 className="text-4xl font-black text-white uppercase tracking-tighter leading-none mb-4">{copy.cardTitle}</h3>
+                <p className="text-white/40 text-[9px] font-mono uppercase tracking-[0.4em]">{copy.cardSub}</p>
               </div>
             </div>
 
             <div className="bg-brand-navy p-8 md:p-10 mt-[-20px] w-full md:w-auto mx-0 md:ml-10 border-l-4 border-brand-orange">
               <p className="text-white text-[11px] font-black uppercase leading-relaxed tracking-widest text-center md:text-left">
-                "Katru nedēļu mūsu transports atrodas ceļā, savienojot Baltiju ar Eiropas ekonomiskajiem centriem."
+                {`"${copy.quote}"`}
               </p>
             </div>
           </div>

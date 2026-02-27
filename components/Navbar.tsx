@@ -1,16 +1,35 @@
-
 import React, { useState, useEffect } from 'react';
+import type { Language } from '../types';
 
-const Navbar: React.FC = () => {
+type NavbarProps = {
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navItems = [
-    { label: 'Sākums', href: '#sākums' },
-    { label: 'Par mums', href: '#par-mums' },
-    { label: 'Tehnoloģija', href: '#tehnoloģija' },
-    { label: 'Pakalpojumi', href: '#pakalpojumi' },
-    { label: 'Kontakti', href: '#kontakti' }
-  ];
+
+  const navItems = language === 'lv'
+    ? [
+        { label: 'Sākums', href: '#home' },
+        { label: 'Par mums', href: '#about' },
+        { label: 'Tehnoloģija', href: '#technology' },
+        { label: 'Pakalpojumi', href: '#services' },
+        { label: 'Kontakti', href: '#contact' }
+      ]
+    : [
+        { label: 'Home', href: '#home' },
+        { label: 'About', href: '#about' },
+        { label: 'Technology', href: '#technology' },
+        { label: 'Services', href: '#services' },
+        { label: 'Contact', href: '#contact' }
+      ];
+
+  const ctaLabel = language === 'lv' ? 'Saņemt piedāvājumu' : 'Request a Quote';
+  const menuLabel = isMobileMenuOpen
+    ? (language === 'lv' ? 'Aizvērt' : 'Close')
+    : (language === 'lv' ? 'Izvēlne' : 'Menu');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,18 +54,23 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const switchLanguage = (nextLanguage: Language) => {
+    onLanguageChange(nextLanguage);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-white border-b border-gray-200 py-2 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           <div className="flex items-center">
-            <a href="#sākums" aria-label="Kernels Transport sākumlapa" className="block">
+            <a href="#home" aria-label={language === 'lv' ? 'Kernels Transport sākumlapa' : 'Kernels Transport homepage'} className="block">
               <span className={`text-2xl font-black tracking-tight font-title transition-colors ${isScrolled ? 'text-black' : 'text-black'}`}>
                 Kernels Transport
               </span>
             </a>
           </div>
-          
+
           <div className="hidden lg:flex items-center space-x-10">
             {navItems.map((item) => (
               <a
@@ -59,12 +83,33 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <a
-            href="#kontakti"
-            className="hidden lg:inline-block bg-brand-orange hover:bg-brand-navy text-white px-8 py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all"
-          >
-            Saņemt Piedāvājumu
-          </a>
+          <div className="hidden lg:flex items-center gap-3">
+            <div className="flex border border-gray-200">
+              <button
+                type="button"
+                onClick={() => switchLanguage('lv')}
+                className={`px-3 py-2 text-[10px] font-black tracking-[0.2em] ${language === 'lv' ? 'bg-brand-navy text-white' : 'text-brand-navy hover:bg-gray-100'}`}
+                aria-label="Latviešu valoda"
+              >
+                LV
+              </button>
+              <button
+                type="button"
+                onClick={() => switchLanguage('en')}
+                className={`px-3 py-2 text-[10px] font-black tracking-[0.2em] ${language === 'en' ? 'bg-brand-navy text-white' : 'text-brand-navy hover:bg-gray-100'}`}
+                aria-label="English language"
+              >
+                EN
+              </button>
+            </div>
+
+            <a
+              href="#contact"
+              className="inline-block bg-brand-orange hover:bg-brand-navy text-white px-8 py-3 text-[10px] font-black uppercase tracking-[0.2em] transition-all"
+            >
+              {ctaLabel}
+            </a>
+          </div>
 
           <button
             type="button"
@@ -72,9 +117,9 @@ const Navbar: React.FC = () => {
             className="lg:hidden bg-brand-orange text-white px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em]"
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-navigation"
-            aria-label={isMobileMenuOpen ? 'Aizvērt navigāciju' : 'Atvērt navigāciju'}
+            aria-label={isMobileMenuOpen ? (language === 'lv' ? 'Aizvērt navigāciju' : 'Close navigation') : (language === 'lv' ? 'Atvērt navigāciju' : 'Open navigation')}
           >
-            {isMobileMenuOpen ? 'Aizvērt' : 'Izvēlne'}
+            {menuLabel}
           </button>
         </div>
       </div>
@@ -87,12 +132,29 @@ const Navbar: React.FC = () => {
           type="button"
           onClick={handleMenuToggle}
           className="absolute top-6 right-6 h-12 w-12 flex items-center justify-center text-brand-navy text-3xl leading-none font-black"
-          aria-label="Aizvērt navigāciju"
+          aria-label={language === 'lv' ? 'Aizvērt navigāciju' : 'Close navigation'}
         >
           ×
         </button>
 
         <div className="h-full w-full pt-28 pb-10 px-6 flex flex-col justify-between">
+          <div className="mb-10 flex justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => switchLanguage('lv')}
+              className={`px-4 py-2 text-xs font-black tracking-[0.2em] border ${language === 'lv' ? 'bg-brand-navy border-brand-navy text-white' : 'border-gray-300 text-brand-navy'}`}
+            >
+              LV
+            </button>
+            <button
+              type="button"
+              onClick={() => switchLanguage('en')}
+              className={`px-4 py-2 text-xs font-black tracking-[0.2em] border ${language === 'en' ? 'bg-brand-navy border-brand-navy text-white' : 'border-gray-300 text-brand-navy'}`}
+            >
+              EN
+            </button>
+          </div>
+
           <div className="flex flex-col items-center justify-center flex-1 gap-8">
             {navItems.map((item) => (
               <a
@@ -107,11 +169,11 @@ const Navbar: React.FC = () => {
           </div>
 
           <a
-            href="#kontakti"
+            href="#contact"
             onClick={handleMobileLinkClick}
             className="block w-full max-w-md mx-auto bg-brand-orange hover:bg-brand-navy text-white text-center py-5 text-[11px] font-black uppercase tracking-[0.2em] transition-all"
           >
-            Saņemt Piedāvājumu
+            {ctaLabel}
           </a>
         </div>
       </div>
