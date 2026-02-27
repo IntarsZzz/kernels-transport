@@ -1,3 +1,23 @@
+body {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff6b00;
+}
+
+.no-corners {
+  border-radius: 0 !important;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -31,7 +51,6 @@
 }
 
 @keyframes pulse-soft {
-
   0%,
   100% {
     opacity: 1;
@@ -72,7 +91,11 @@
   height: 280px;
   right: -60px;
   top: 20%;
-  background: radial-gradient(circle at center, rgba(255, 107, 0, 0.35) 0%, rgba(255, 107, 0, 0) 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 107, 0, 0.35) 0%,
+    rgba(255, 107, 0, 0) 70%
+  );
 }
 
 .hero-orb-b {
@@ -80,7 +103,11 @@
   height: 220px;
   left: -40px;
   bottom: 12%;
-  background: radial-gradient(circle at center, rgba(31, 41, 55, 0.25) 0%, rgba(31, 41, 55, 0) 72%);
+  background: radial-gradient(
+    circle at center,
+    rgba(31, 41, 55, 0.25) 0%,
+    rgba(31, 41, 55, 0) 72%
+  );
   animation-delay: 1.5s;
 }
 
@@ -103,7 +130,9 @@
 .scroll-reveal {
   opacity: 0;
   transform: translateY(150px);
-  transition: opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1), transform 2.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 2.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 2.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 
@@ -116,7 +145,9 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition:
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out;
 }
 
 .hover-tilt:hover {

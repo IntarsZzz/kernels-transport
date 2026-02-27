@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Kernels Transport (Next.js SSR/SSG)
 
-# Run and deploy your AI Studio app
+## Prerequisites
+- Node.js 20+
+- npm 10+
 
-This contains everything you need to run your app locally.
+## Local run
+1. Copy environment template:
+   - `cp .env.example .env.local`
+2. Set production-like values in `.env.local`:
+   - `NEXT_PUBLIC_SITE_URL=https://your-domain.tld`
+   - `GEMINI_API_KEY=...` (only if chatbot/API usage is enabled)
+3. Install and run:
+   - `npm install`
+   - `npm run dev`
+4. Open:
+   - `http://localhost:3000`
 
-View your app in AI Studio: https://ai.studio/apps/drive/1SgzQ-gC9MA5kpqQfGM6lMBdHWKn5Bl1x
+## Production build check
+- `npm run build`
+- `npm run start`
 
-## Run Locally
+## Deploy (Vercel recommended)
+1. Import repository in Vercel.
+2. Add environment variables:
+   - `NEXT_PUBLIC_SITE_URL=https://your-domain.tld`
+   - `GEMINI_API_KEY=...` (if needed)
+3. Deploy.
+4. Verify:
+   - `/`
+   - `/en`
+   - `/robots.txt`
+   - `/sitemap.xml`
 
-**Prerequisites:**  Node.js
+## Deploy with Docker
+1. Build image:
+   - `docker build -t kernels-transport:latest .`
+2. Run container:
+   - `docker run --rm -p 3000:3000 --env NEXT_PUBLIC_SITE_URL=https://your-domain.tld kernels-transport:latest`
+3. Open:
+   - `http://localhost:3000`
 
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## SEO checklist
+- See [SEO-CHECKLIST.md](./SEO-CHECKLIST.md) for go-live indexing steps.

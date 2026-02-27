@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import type { Language } from '../types';
 
 type NavbarProps = {
   language: Language;
-  onLanguageChange: (language: Language) => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
+const Navbar: React.FC<NavbarProps> = ({ language }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -54,9 +54,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
     setIsMobileMenuOpen(false);
   };
 
-  const switchLanguage = (nextLanguage: Language) => {
-    onLanguageChange(nextLanguage);
-    setIsMobileMenuOpen(false);
+  const getLocaleHref = (nextLanguage: Language) => {
+    return nextLanguage === 'en' ? '/en' : '/';
   };
 
   return (
@@ -85,22 +84,20 @@ const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
 
           <div className="hidden lg:flex items-center gap-3">
             <div className="flex border border-gray-200">
-              <button
-                type="button"
-                onClick={() => switchLanguage('lv')}
+              <Link
+                href={getLocaleHref('lv')}
                 className={`px-3 py-2 text-[10px] font-black tracking-[0.2em] ${language === 'lv' ? 'bg-brand-navy text-white' : 'text-brand-navy hover:bg-gray-100'}`}
                 aria-label="Latviešu valoda"
               >
                 LV
-              </button>
-              <button
-                type="button"
-                onClick={() => switchLanguage('en')}
+              </Link>
+              <Link
+                href={getLocaleHref('en')}
                 className={`px-3 py-2 text-[10px] font-black tracking-[0.2em] ${language === 'en' ? 'bg-brand-navy text-white' : 'text-brand-navy hover:bg-gray-100'}`}
                 aria-label="English language"
               >
                 EN
-              </button>
+              </Link>
             </div>
 
             <a
@@ -139,20 +136,20 @@ const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
 
         <div className="h-full w-full pt-28 pb-10 px-6 flex flex-col justify-between">
           <div className="mb-10 flex justify-center gap-3">
-            <button
-              type="button"
-              onClick={() => switchLanguage('lv')}
+            <Link
+              href={getLocaleHref('lv')}
+              onClick={handleMobileLinkClick}
               className={`px-4 py-2 text-xs font-black tracking-[0.2em] border ${language === 'lv' ? 'bg-brand-navy border-brand-navy text-white' : 'border-gray-300 text-brand-navy'}`}
             >
               LV
-            </button>
-            <button
-              type="button"
-              onClick={() => switchLanguage('en')}
+            </Link>
+            <Link
+              href={getLocaleHref('en')}
+              onClick={handleMobileLinkClick}
               className={`px-4 py-2 text-xs font-black tracking-[0.2em] border ${language === 'en' ? 'bg-brand-navy border-brand-navy text-white' : 'border-gray-300 text-brand-navy'}`}
             >
               EN
-            </button>
+            </Link>
           </div>
 
           <div className="flex flex-col items-center justify-center flex-1 gap-8">
