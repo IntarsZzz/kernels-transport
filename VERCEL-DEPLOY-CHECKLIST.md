@@ -65,3 +65,8 @@
   - `npm run check:deploy`
 - Or for a different host:
   - `bash scripts/post-deploy-check.sh your-domain.tld`
+
+## 10) If you see missing chunk/module runtime errors
+- Run a clean rebuild locally:
+  - `npm run build:clean`
+- In Vercel, trigger `Redeploy` with `Clear build cache` enabled.

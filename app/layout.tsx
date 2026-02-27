@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kernels.lv';
@@ -103,42 +102,41 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Bricolage+Grotesque:wght@800&family=Sora:wght@700;800&family=Barlow+Condensed:wght@600;700&display=swap"
           rel="stylesheet"
         />
-        <Script id="tailwind-config" strategy="beforeInteractive">
-          {`tailwind.config = {
-            theme: {
-              extend: {
-                colors: {
-                  brand: {
-                    orange: '#FF6B00',
-                    navy: '#1F2937',
-                    light: '#F9FAFB',
-                    gray: '#6B7280'
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `tailwind.config = {
+              theme: {
+                extend: {
+                  colors: {
+                    brand: {
+                      orange: '#FF6B00',
+                      navy: '#1F2937',
+                      light: '#F9FAFB',
+                      gray: '#6B7280'
+                    }
+                  },
+                  fontFamily: {
+                    sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    display: ['Bricolage Grotesque', 'sans-serif'],
+                    title: ['Sora', 'sans-serif'],
+                    accent: ['Barlow Condensed', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace']
+                  },
+                  borderRadius: {
+                    none: '0',
+                    sm: '0',
+                    DEFAULT: '0',
+                    md: '0',
+                    lg: '0',
+                    xl: '0',
+                    '2xl': '0'
                   }
-                },
-                fontFamily: {
-                  sans: ['Plus Jakarta Sans', 'sans-serif'],
-                  display: ['Bricolage Grotesque', 'sans-serif'],
-                  title: ['Sora', 'sans-serif'],
-                  accent: ['Barlow Condensed', 'sans-serif'],
-                  mono: ['JetBrains Mono', 'monospace']
-                },
-                borderRadius: {
-                  none: '0',
-                  sm: '0',
-                  DEFAULT: '0',
-                  md: '0',
-                  lg: '0',
-                  xl: '0',
-                  '2xl': '0'
                 }
               }
-            }
-          };`}
-        </Script>
-        <Script
-          src="https://cdn.tailwindcss.com"
-          strategy="beforeInteractive"
+            };`,
+          }}
         />
+        <script src="https://cdn.tailwindcss.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -193,3 +193,92 @@ body {
   animation-delay: 1000ms;
   transition-delay: 1000ms;
 }
+
+/* Fallback brand utilities to keep visual identity stable. */
+.text-brand-orange {
+  color: #ff6b00;
+}
+
+.bg-brand-orange {
+  background-color: #ff6b00;
+}
+
+.border-brand-orange {
+  border-color: #ff6b00;
+}
+
+.text-brand-navy {
+  color: #1f2937;
+}
+
+.bg-brand-navy {
+  background-color: #1f2937;
+}
+
+.border-brand-navy {
+  border-color: #1f2937;
+}
+
+.text-brand-gray {
+  color: #6b7280;
+}
+
+.text-brand-navy\/90 {
+  color: rgba(31, 41, 55, 0.9);
+}
+
+.text-brand-navy\/60 {
+  color: rgba(31, 41, 55, 0.6);
+}
+
+.text-brand-navy\/40 {
+  color: rgba(31, 41, 55, 0.4);
+}
+
+.text-brand-navy\/10 {
+  color: rgba(31, 41, 55, 0.1);
+}
+
+.text-brand-gray\/60 {
+  color: rgba(107, 114, 128, 0.6);
+}
+
+.border-brand-orange\/20 {
+  border-color: rgba(255, 107, 0, 0.2);
+}
+
+.border-brand-navy\/10 {
+  border-color: rgba(31, 41, 55, 0.1);
+}
+
+.hover\:bg-brand-orange:hover {
+  background-color: #ff6b00;
+}
+
+.hover\:bg-brand-navy:hover {
+  background-color: #1f2937;
+}
+
+.hover\:text-brand-orange:hover {
+  color: #ff6b00;
+}
+
+.hover\:text-brand-navy:hover {
+  color: #1f2937;
+}
+
+.hover\:border-brand-orange:hover {
+  border-color: #ff6b00;
+}
+
+.focus\:border-brand-orange:focus {
+  border-color: #ff6b00;
+}
+
+.group:hover .group-hover\:text-brand-orange {
+  color: #ff6b00;
+}
+
+.group:hover .group-hover\:scale-150 {
+  transform: scale(1.5);
+}

@@ -47,8 +47,8 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
           <div className="md:col-span-5">
-            <h4 className="text-4xl font-black tracking-tighter mb-8 uppercase">
-              KERNELS <br /> <span className="text-brand-orange">TRANSPORT</span>
+            <h4 className="text-2xl font-black tracking-tight font-title text-white mb-8">
+              Kernels Transport
             </h4>
             <p className="text-white/30 text-xs font-medium leading-relaxed max-w-sm uppercase tracking-wider">
               {copy.description}
