@@ -99,7 +99,20 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] text-white/20 uppercase tracking-[0.4em] font-black">
-          <p>© 2026 KERNELS TRANSPORT // LOGISTICS OPERATIONS CENTER</p>
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <p>© 2026 KERNELS TRANSPORT // LOGISTICS OPERATIONS CENTER</p>
+            <p className="tracking-[0.25em]">
+              {language === 'lv' ? 'LAPU IZSTRĀDĀJA' : 'WEBSITE BY'}{' '}
+              <a
+                href="https://majaslapuizstrade.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/50 hover:text-white transition-colors"
+              >
+                MAJASLAPUIZSTRADE.COM
+              </a>
+            </p>
+          </div>
           <div className="flex space-x-12 mt-6 md:mt-0">
             <a href={privacyHref} className="hover:text-white transition-colors">{copy.privacy}</a>
             <a
