@@ -100,11 +100,33 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black mb-3">7. Sīkdatnes</h2>
-            <p className="text-sm md:text-base leading-relaxed">
-              Vietne var izmantot tehniskās un analītiskās sīkdatnes, lai
-              nodrošinātu vietnes darbību un uzlabotu lietotāju pieredzi.
-            </p>
+            <h2 className="text-xl font-black mb-3">7. Sīkdatņu politika</h2>
+            <div className="space-y-4 text-sm md:text-base leading-relaxed">
+              <p>
+                Vietnē tiek izmantotas sīkdatnes, lai nodrošinātu pamatfunkcijas,
+                atcerētos lietotāja izvēles un analizētu apmeklējumu ar Google
+                Analytics.
+              </p>
+              <p>
+                Mēs izmantojam šādas sīkdatņu kategorijas:
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Nepieciešamās sīkdatnes</strong>: vajadzīgas vietnes
+                  tehniskai darbībai un drošībai.
+                </li>
+                <li>
+                  <strong>Analītiskās sīkdatnes</strong>: palīdz saprast, kā
+                  lietotāji izmanto vietni. Šobrīd analītikai izmantojam tikai
+                  Google Analytics.
+                </li>
+              </ul>
+              <p>
+                Sīkdatņu izvēles varat pārvaldīt, izmantojot sīkdatņu baneri vai
+                saiti “Sīkdatnes” vietnes kājenē. Nepieciešamās sīkdatnes nevar
+                atspējot, jo tās nodrošina vietnes pamatdarbību.
+              </p>
+            </div>
           </section>
 
           <section>

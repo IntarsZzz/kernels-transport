@@ -98,11 +98,32 @@ export default function PrivacyPolicyEnglishPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-black mb-3">7. Cookies</h2>
-            <p className="text-sm md:text-base leading-relaxed">
-              The website may use technical and analytics cookies to ensure
-              website functionality and improve user experience.
-            </p>
+            <h2 className="text-xl font-black mb-3">7. Cookie Policy</h2>
+            <div className="space-y-4 text-sm md:text-base leading-relaxed">
+              <p>
+                This website uses cookies to ensure core functionality, remember
+                user choices, and measure traffic with Google Analytics.
+              </p>
+              <p>
+                We use the following cookie categories:
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Necessary cookies</strong>: required for technical
+                  website operation and security.
+                </li>
+                <li>
+                  <strong>Analytics cookies</strong>: help us understand how
+                  users interact with the website. At the moment, analytics is
+                  provided only by Google Analytics.
+                </li>
+              </ul>
+              <p>
+                You can manage your cookie preferences using the cookie banner
+                or the “Cookies” link in the website footer. Necessary cookies
+                cannot be disabled because they are essential for core operation.
+              </p>
+            </div>
           </section>
 
           <section>

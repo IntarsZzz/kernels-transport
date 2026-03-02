@@ -199,6 +199,42 @@ body {
   color: #ff6b00;
 }
 
+.text-brand-navy {
+  color: #1f2937;
+}
+
+.bg-brand-orange {
+  background-color: #ff6b00;
+}
+
+.bg-brand-navy {
+  background-color: #1f2937;
+}
+
+.border-brand-orange {
+  border-color: #ff6b00;
+}
+
+.border-brand-navy {
+  border-color: #1f2937;
+}
+
+.hover\:bg-brand-orange:hover {
+  background-color: #ff6b00;
+}
+
+.hover\:bg-brand-navy:hover {
+  background-color: #1f2937;
+}
+
+.hover\:text-brand-orange:hover {
+  color: #ff6b00;
+}
+
+.hover\:text-brand-navy:hover {
+  color: #1f2937;
+}
+
 .bg-brand-orange {
   background-color: #ff6b00;
 }

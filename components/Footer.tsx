@@ -7,6 +7,7 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ language }) => {
   const privacyHref = language === 'lv' ? '/privatuma-politika' : '/en/privacy-policy';
+  const termsHref = language === 'lv' ? '/noteikumi' : '/en/terms';
 
   const copy = language === 'lv'
     ? {
@@ -111,7 +112,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             >
               {copy.cookies}
             </a>
-            <a href="#" className="hover:text-white transition-colors">{copy.terms}</a>
+            <a href={termsHref} className="hover:text-white transition-colors">{copy.terms}</a>
           </div>
         </div>
       </div>

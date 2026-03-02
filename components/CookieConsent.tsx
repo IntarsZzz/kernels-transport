@@ -7,7 +7,6 @@ import type { Language } from '../types';
 type ConsentPreferences = {
   necessary: true;
   analytics: boolean;
-  marketing: boolean;
   updatedAt: string;
 };
 
@@ -15,8 +14,8 @@ type CookieConsentProps = {
   language: Language;
 };
 
-const STORAGE_KEY = 'kt_cookie_consent_v1';
-const COOKIE_KEY = 'kt_cookie_consent_v1';
+const STORAGE_KEY = 'kt_cookie_consent_v2';
+const COOKIE_KEY = 'kt_cookie_consent_v2';
 const COOKIE_TTL_DAYS = 180;
 
 function readConsentFromStorage(): ConsentPreferences | null {
@@ -31,14 +30,13 @@ function readConsentFromStorage(): ConsentPreferences | null {
 
   try {
     const parsed = JSON.parse(raw) as Partial<ConsentPreferences>;
-    if (typeof parsed.analytics !== 'boolean' || typeof parsed.marketing !== 'boolean') {
+    if (typeof parsed.analytics !== 'boolean') {
       return null;
     }
 
     return {
       necessary: true,
       analytics: parsed.analytics,
-      marketing: parsed.marketing,
       updatedAt: parsed.updatedAt || new Date().toISOString(),
     };
   } catch {
@@ -69,7 +67,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showCustomize, setShowCustomize] = useState(false);
   const [analytics, setAnalytics] = useState(false);
-  const [marketing, setMarketing] = useState(false);
 
   const copy = useMemo(
     () =>
@@ -77,7 +74,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
         ? {
             title: 'Mēs izmantojam sīkdatnes',
             body:
-              'Lai nodrošinātu vietnes darbību un uzlabotu pieredzi, izmantojam nepieciešamās un izvēles sīkdatnes.',
+              'Lai nodrošinātu vietnes darbību un mērītu apmeklējumu ar Google Analytics, izmantojam nepieciešamās un analītiskās sīkdatnes.',
             acceptAll: 'Pieņemt visas',
             necessaryOnly: 'Tikai nepieciešamās',
             customize: 'Pielāgot',
@@ -85,13 +82,12 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
             policy: 'Privātuma politika',
             necessary: 'Nepieciešamās',
             analytics: 'Analītiskās',
-            marketing: 'Mārketinga',
             alwaysOn: 'Vienmēr aktīvas',
           }
         : {
             title: 'We use cookies',
             body:
-              'To keep the website working and improve your experience, we use necessary and optional cookies.',
+              'To keep the website working and measure visits with Google Analytics, we use necessary and analytics cookies.',
             acceptAll: 'Accept all',
             necessaryOnly: 'Necessary only',
             customize: 'Customize',
@@ -99,7 +95,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
             policy: 'Privacy policy',
             necessary: 'Necessary',
             analytics: 'Analytics',
-            marketing: 'Marketing',
             alwaysOn: 'Always active',
           },
     [language],
@@ -113,7 +108,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
       setIsVisible(true);
     } else {
       setAnalytics(current.analytics);
-      setMarketing(current.marketing);
       setIsVisible(false);
     }
 
@@ -121,7 +115,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
       const stored = readConsentFromStorage();
       if (stored) {
         setAnalytics(stored.analytics);
-        setMarketing(stored.marketing);
       }
       setShowCustomize(true);
       setIsVisible(true);
@@ -163,7 +156,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
           </div>
 
           {showCustomize && (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               <div className="border border-gray-200 p-3">
                 <p className="font-black text-brand-navy">{copy.necessary}</p>
                 <p className="text-xs uppercase tracking-[0.12em] text-brand-navy/50 mt-1">
@@ -178,16 +171,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
                   className="h-4 w-4 accent-brand-orange"
                   checked={analytics}
                   onChange={(event) => setAnalytics(event.target.checked)}
-                />
-              </label>
-
-              <label className="border border-gray-200 p-3 flex items-center justify-between gap-3 cursor-pointer">
-                <span className="font-black text-brand-navy">{copy.marketing}</span>
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 accent-brand-orange"
-                  checked={marketing}
-                  onChange={(event) => setMarketing(event.target.checked)}
                 />
               </label>
             </div>
@@ -211,7 +194,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
                   closeAndPersist({
                     necessary: true,
                     analytics,
-                    marketing,
                   });
                   return;
                 }
@@ -219,7 +201,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
                 closeAndPersist({
                   necessary: true,
                   analytics: false,
-                  marketing: false,
                 });
               }}
               className="px-5 py-3 text-[11px] font-black uppercase tracking-[0.18em] border border-gray-300 text-brand-navy hover:bg-gray-50 transition-colors"
@@ -233,7 +214,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
                 closeAndPersist({
                   necessary: true,
                   analytics: true,
-                  marketing: true,
                 })
               }
               className="px-5 py-3 text-[11px] font-black uppercase tracking-[0.18em] bg-brand-orange text-white hover:bg-brand-navy transition-colors"
