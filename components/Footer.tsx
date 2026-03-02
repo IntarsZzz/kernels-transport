@@ -6,6 +6,8 @@ type FooterProps = {
 };
 
 const Footer: React.FC<FooterProps> = ({ language }) => {
+  const privacyHref = language === 'lv' ? '/privatuma-politika' : '/en/privacy-policy';
+
   const copy = language === 'lv'
     ? {
         description: 'Profesionāli loģistikas risinājumi un kravu pārvadājumi starp Baltiju un Centrāleiropu kopš 2010. gada. Savs autoparks un pilna procesu kontrole.',
@@ -15,6 +17,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         member: 'LTRK biedrs',
         standard: 'EURO 6 standarts',
         privacy: 'Privātums',
+        cookies: 'Sīkdatnes',
         terms: 'Noteikumi',
         nav: [
           { label: 'Sākums', href: '#home' },
@@ -32,6 +35,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         member: 'LTRK member',
         standard: 'EURO 6 standard',
         privacy: 'Privacy',
+        cookies: 'Cookies',
         terms: 'Terms',
         nav: [
           { label: 'Home', href: '#home' },
@@ -96,7 +100,17 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] text-white/20 uppercase tracking-[0.4em] font-black">
           <p>© 2026 KERNELS TRANSPORT // LOGISTICS OPERATIONS CENTER</p>
           <div className="flex space-x-12 mt-6 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">{copy.privacy}</a>
+            <a href={privacyHref} className="hover:text-white transition-colors">{copy.privacy}</a>
+            <a
+              href="#"
+              onClick={(event) => {
+                event.preventDefault();
+                window.dispatchEvent(new CustomEvent('open-cookie-settings'));
+              }}
+              className="hover:text-white transition-colors"
+            >
+              {copy.cookies}
+            </a>
             <a href="#" className="hover:text-white transition-colors">{copy.terms}</a>
           </div>
         </div>
