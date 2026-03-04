@@ -5,6 +5,7 @@ type ContactPayload = {
   phone?: string;
   email?: string;
   message?: string;
+  _honeypot?: string;
   language?: 'lv' | 'en';
 };
 
@@ -31,7 +32,13 @@ export async function POST(req: Request) {
     const phone = payload.phone?.trim() ?? '';
     const email = payload.email?.trim() ?? '';
     const message = payload.message?.trim() ?? '';
+    const honeypot = payload._honeypot?.trim() ?? '';
     const language = payload.language === 'en' ? 'en' : 'lv';
+
+    // Silently ignore likely bot submissions.
+    if (honeypot) {
+      return NextResponse.json({ ok: true, spamIgnored: true });
+    }
 
     if (!name || !phone || !email || !message) {
       return NextResponse.json({ ok: false, error: 'Missing required fields' }, { status: 400 });
@@ -43,8 +50,8 @@ export async function POST(req: Request) {
 
     const formsparkActionUrl = getFormsparkActionUrl();
     const subject = language === 'en'
-      ? 'New contact request from kernels.lv'
-      : 'Jauns pieprasījums no kernels.lv';
+      ? `New contact request | kernels.lv | ${name}`
+      : `Jauns pieprasījums | kernels.lv | ${name}`;
 
     const formsparkResponse = await fetch(formsparkActionUrl, {
       method: 'POST',
@@ -58,8 +65,12 @@ export async function POST(req: Request) {
         email,
         message,
         language,
-        subject,
+        _email: {
+          subject,
+          from: 'Kernels Transport Website',
+        },
         source: 'kernels.lv contact form',
+        _honeypot: '',
       }),
     });
 

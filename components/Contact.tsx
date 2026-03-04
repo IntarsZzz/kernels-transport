@@ -51,6 +51,14 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitError, setSubmitError] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  const showSentToast = () => {
+    setToastMessage(copy.thanks);
+    setShowToast(true);
+    window.setTimeout(() => setShowToast(false), 4500);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,6 +70,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
       phone: String(formData.get('phone') || '').trim(),
       email: String(formData.get('email') || '').trim(),
       message: String(formData.get('message') || '').trim(),
+      _honeypot: String(formData.get('_honeypot') || '').trim(),
       language,
     };
 
@@ -91,6 +100,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
 
       form.reset();
       setSubmitMessage(copy.thanks);
+      showSentToast();
     } catch (error) {
       console.error(error);
       setSubmitError(true);
@@ -169,6 +179,14 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
           <div className="lg:col-span-6 bg-brand-navy p-12 h-full">
             <h3 className="text-xs font-black text-white mb-12 uppercase tracking-[0.3em]">{copy.requestTitle}</h3>
             <form onSubmit={handleSubmit} className="space-y-10">
+              <input
+                type="text"
+                name="_honeypot"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
                   <label className="block text-[9px] font-black text-white/30 uppercase tracking-[0.2em] mb-4">{copy.nameLabel}</label>
@@ -203,6 +221,12 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
           </div>
         </div>
       </div>
+
+      {showToast && (
+        <div className="fixed bottom-6 right-6 z-[80] max-w-sm bg-green-600 text-white border border-green-400 shadow-2xl px-5 py-4">
+          <p className="text-[11px] font-black uppercase tracking-[0.15em]">{toastMessage}</p>
+        </div>
+      )}
     </section>
   );
 };
