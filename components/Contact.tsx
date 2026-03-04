@@ -79,7 +79,14 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Request failed');
+        const errorPayload = await response.json().catch(() => null) as {
+          error?: string;
+          details?: string;
+        } | null;
+        const errorText = errorPayload?.details
+          ? `${errorPayload.error || 'Request failed'}: ${errorPayload.details}`
+          : errorPayload?.error || 'Request failed';
+        throw new Error(errorText);
       }
 
       form.reset();
@@ -87,7 +94,8 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     } catch (error) {
       console.error(error);
       setSubmitError(true);
-      setSubmitMessage(copy.error);
+      const message = error instanceof Error ? `${copy.error} (${error.message})` : copy.error;
+      setSubmitMessage(message);
     } finally {
       setIsSubmitting(false);
     }

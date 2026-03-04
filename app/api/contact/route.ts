@@ -66,12 +66,20 @@ export async function POST(req: Request) {
     if (!formsparkResponse.ok) {
       const details = await formsparkResponse.text();
       console.error('Formspark API error:', formsparkResponse.status, details);
-      return NextResponse.json({ ok: false, error: 'Failed to send message' }, { status: 502 });
+      return NextResponse.json(
+        {
+          ok: false,
+          error: `Formspark error (${formsparkResponse.status})`,
+          details: details.slice(0, 300),
+        },
+        { status: 502 },
+      );
     }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error('Contact form send error:', error);
-    return NextResponse.json({ ok: false, error: 'Failed to send message' }, { status: 500 });
+    const message = error instanceof Error ? error.message : 'Failed to send message';
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }
