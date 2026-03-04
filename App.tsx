@@ -11,6 +11,7 @@ import Routes from './components/Routes';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
+import VercelAnalytics from './components/VercelAnalytics';
 import type { Language } from './types';
 import { useScrollReveal } from './services/animations';
 
@@ -35,6 +36,7 @@ const App: React.FC<AppProps> = ({ language }) => {
       <Routes language={language} />
       <Contact language={language} />
       <Footer language={language} />
+      <VercelAnalytics />
       <CookieConsent language={language} />
     </div>
   );

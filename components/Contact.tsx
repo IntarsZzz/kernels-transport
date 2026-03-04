@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Language } from '../types';
 
 type ContactProps = {
@@ -21,9 +21,11 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
         emailLabel: 'E-pasta adrese',
         messageLabel: 'Ziņojums',
         send: 'Nosūtīt ziņojumu',
+        sending: 'Sūta...',
         companyLine: 'SIA "Kernels Transport" // Reģ. nr.: 40203299137',
         address: 'Dobeles nov., Dobele, Kooperācijas iela 6, LV-3701',
-        thanks: 'Paldies! Jūsu pieteikums ir saņemts.'
+        thanks: 'Paldies! Jūsu pieteikums ir nosūtīts.',
+        error: 'Neizdevās nosūtīt ziņojumu. Lūdzu, mēģiniet vēlreiz.'
       }
     : {
         label: 'Contact',
@@ -39,14 +41,56 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
         emailLabel: 'Email address',
         messageLabel: 'Message',
         send: 'Send message',
+        sending: 'Sending...',
         companyLine: 'SIA "Kernels Transport" // Reg. no.: 40203299137',
         address: 'Kooperacijas iela 6, Dobele, Dobeles nov., LV-3701, Latvia',
-        thanks: 'Thank you! Your request has been received.'
+        thanks: 'Thank you! Your request has been sent.',
+        error: 'Could not send your message. Please try again.'
       };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitError, setSubmitError] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(copy.thanks);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: String(formData.get('name') || '').trim(),
+      phone: String(formData.get('phone') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      message: String(formData.get('message') || '').trim(),
+      language,
+    };
+
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    setSubmitError(false);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
+      form.reset();
+      setSubmitMessage(copy.thanks);
+    } catch (error) {
+      console.error(error);
+      setSubmitError(true);
+      setSubmitMessage(copy.error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,24 +164,33 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
               <div className="grid md:grid-cols-2 gap-10">
                 <div>
                   <label className="block text-[9px] font-black text-white/30 uppercase tracking-[0.2em] mb-4">{copy.nameLabel}</label>
-                  <input type="text" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder={language === 'lv' ? 'JŪSU VĀRDS' : 'YOUR NAME'} />
+                  <input name="name" type="text" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder={language === 'lv' ? 'JŪSU VĀRDS' : 'YOUR NAME'} />
                 </div>
                 <div>
                   <label className="block text-[9px] font-black text-white/30 uppercase tracking-[0.2em] mb-4">{copy.phoneLabel}</label>
-                  <input type="tel" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder="+371 ..." />
+                  <input name="phone" type="tel" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder="+371 ..." />
                 </div>
               </div>
               <div>
                 <label className="block text-[9px] font-black text-white/30 uppercase tracking-[0.2em] mb-4">{copy.emailLabel}</label>
-                <input type="email" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder={language === 'lv' ? 'PIEMERS@KERNELS.LV' : 'EXAMPLE@KERNELS.LV'} />
+                <input name="email" type="email" required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange" placeholder={language === 'lv' ? 'PIEMERS@KERNELS.LV' : 'EXAMPLE@KERNELS.LV'} />
               </div>
               <div>
                 <label className="block text-[9px] font-black text-white/30 uppercase tracking-[0.2em] mb-4">{copy.messageLabel}</label>
-                <textarea rows={7} required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange resize-none" placeholder={language === 'lv' ? 'APRAKSTIET SAVU VAJADZĪBU...' : 'DESCRIBE YOUR REQUEST...'}></textarea>
+                <textarea name="message" rows={7} required className="w-full bg-white/5 border border-white/10 px-6 py-5 text-xs text-white focus:outline-none focus:border-brand-orange resize-none" placeholder={language === 'lv' ? 'APRAKSTIET SAVU VAJADZĪBU...' : 'DESCRIBE YOUR REQUEST...'}></textarea>
               </div>
-              <button className="w-full py-7 bg-brand-orange hover:bg-white text-white hover:text-brand-navy font-black text-[10px] uppercase tracking-[0.3em] transition-all">
-                {copy.send}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-7 bg-brand-orange hover:bg-white disabled:opacity-70 disabled:cursor-not-allowed text-white hover:text-brand-navy font-black text-[10px] uppercase tracking-[0.3em] transition-all"
+              >
+                {isSubmitting ? copy.sending : copy.send}
               </button>
+              {submitMessage && (
+                <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${submitError ? 'text-red-300' : 'text-green-300'}`}>
+                  {submitMessage}
+                </p>
+              )}
             </form>
           </div>
         </div>

@@ -118,7 +118,7 @@ export default function PrivacyPolicyPage() {
                 <li>
                   <strong>Analītiskās sīkdatnes</strong>: palīdz saprast, kā
                   lietotāji izmanto vietni. Šobrīd analītikai izmantojam tikai
-                  Google Analytics.
+                  analītikas risinājumi.
                 </li>
               </ul>
               <p>

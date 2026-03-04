@@ -74,7 +74,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
         ? {
             title: 'Mēs izmantojam sīkdatnes',
             body:
-              'Lai nodrošinātu vietnes darbību un mērītu apmeklējumu ar Google Analytics, izmantojam nepieciešamās un analītiskās sīkdatnes.',
+              'Lai nodrošinātu vietnes darbību un mērītu apmeklējumu, izmantojam nepieciešamās un analītiskās sīkdatnes.',
             acceptAll: 'Pieņemt visas',
             necessaryOnly: 'Tikai nepieciešamās',
             customize: 'Pielāgot',
@@ -87,7 +87,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ language }) => {
         : {
             title: 'We use cookies',
             body:
-              'To keep the website working and measure visits with Google Analytics, we use necessary and analytics cookies.',
+              'To keep the website working and measure visits, we use necessary and analytics cookies.',
             acceptAll: 'Accept all',
             necessaryOnly: 'Necessary only',
             customize: 'Customize',

@@ -10,6 +10,8 @@
 2. Set production-like values in `.env.local`:
    - `NEXT_PUBLIC_SITE_URL=https://your-domain.tld`
    - `GEMINI_API_KEY=...` (only if chatbot/API usage is enabled)
+   - `FORMSPARK_FORM_ID=...` (from Formspark form settings)
+   - optional: `FORMSPARK_ACTION_URL=https://submit-form.com/<form-id>` (if you want to pass full action URL instead of `FORMSPARK_FORM_ID`)
 3. Install and run:
    - `npm install`
    - `npm run dev`
@@ -25,6 +27,7 @@
 2. Add environment variables:
    - `NEXT_PUBLIC_SITE_URL=https://your-domain.tld`
    - `GEMINI_API_KEY=...` (if needed)
+   - `FORMSPARK_FORM_ID` (or `FORMSPARK_ACTION_URL`)
 3. Deploy.
 4. Verify:
    - `/`

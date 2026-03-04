@@ -102,7 +102,7 @@ export default function PrivacyPolicyEnglishPage() {
             <div className="space-y-4 text-sm md:text-base leading-relaxed">
               <p>
                 This website uses cookies to ensure core functionality, remember
-                user choices, and measure traffic with Google Analytics.
+                user choices, and measure traffic with analytics cookies.
               </p>
               <p>
                 We use the following cookie categories:
@@ -114,8 +114,7 @@ export default function PrivacyPolicyEnglishPage() {
                 </li>
                 <li>
                   <strong>Analytics cookies</strong>: help us understand how
-                  users interact with the website. At the moment, analytics is
-                  provided only by Google Analytics.
+                  users interact with the website.
                 </li>
               </ul>
               <p>
