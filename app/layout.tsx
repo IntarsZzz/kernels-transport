@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import './globals.css';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kernels.lv';
+const ogImage = '/images/KernelsTransport_OG.png';
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -62,6 +64,7 @@ export const metadata: Metadata = {
     languages: {
       lv: '/',
       en: '/en',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -74,10 +77,10 @@ export const metadata: Metadata = {
     url: '/',
     images: [
       {
-        url: '/images/Kernels_Transport_hero.jpg',
-        width: 1600,
-        height: 900,
-        alt: 'Kernels Transport cargo operations',
+        url: ogImage,
+        width: 1585,
+        height: 904,
+        alt: 'Kernels Transport',
       },
     ],
   },
@@ -86,17 +89,21 @@ export const metadata: Metadata = {
     title: 'Kernels Transport',
     description:
       'Professional logistics services and freight transport between the Baltics and Central Europe.',
-    images: ['/images/Kernels_Transport_hero.jpg'],
+    images: [ogImage],
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerList = await headers();
+  const pathname = headerList.get('x-pathname') || '/';
+  const htmlLang = pathname.startsWith('/en') ? 'en' : 'lv';
+
   return (
-    <html lang="lv">
+    <html lang={htmlLang}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Bricolage+Grotesque:wght@800&family=Sora:wght@700;800&family=Barlow+Condensed:wght@600;700&display=swap"

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const ogImage = '/images/KernelsTransport_OG.png';
+
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
     languages: {
       lv: '/privatuma-politika',
       en: '/en/privacy-policy',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -18,11 +21,20 @@ export const metadata: Metadata = {
     title: 'Privacy Policy',
     description:
       'Information about how SIA Kernels Transport processes personal data and protects privacy.',
+    images: [
+      {
+        url: ogImage,
+        width: 1585,
+        height: 904,
+        alt: 'Kernels Transport',
+      },
+    ],
   },
   twitter: {
     title: 'Privacy Policy',
     description:
       'Information about how SIA Kernels Transport processes personal data and protects privacy.',
+    images: [ogImage],
   },
 };
 

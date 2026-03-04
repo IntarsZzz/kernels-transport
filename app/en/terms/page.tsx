@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const ogImage = '/images/KernelsTransport_OG.png';
+
 export const metadata: Metadata = {
   title: 'Terms',
   description:
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
     languages: {
       lv: '/noteikumi',
       en: '/en/terms',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -18,11 +21,20 @@ export const metadata: Metadata = {
     title: 'Terms',
     description:
       'Website usage and service terms for Kernels Transport.',
+    images: [
+      {
+        url: ogImage,
+        width: 1585,
+        height: 904,
+        alt: 'Kernels Transport',
+      },
+    ],
   },
   twitter: {
     title: 'Terms',
     description:
       'Website usage and service terms for Kernels Transport.',
+    images: [ogImage],
   },
 };
 
